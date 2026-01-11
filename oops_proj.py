@@ -7,7 +7,7 @@ class chatbook:
         
     def menu(self):
         user_input = input("""Welcome to chat book!! How yould you like to procreed?
-                           1. Press 1 to signup)
+                           1. Press 1 to signup
                            2. Press 2 to signin
                            3. Press 3 to write a post
                            4. Press 4 to message a friend 
@@ -17,9 +17,9 @@ class chatbook:
         elif user_input == "2":
             self.signin()
         elif user_input == "3":
-            pass
+            self.my_post()
         elif user_input == "4":
-            pass
+            self.sent_msg()
         else:
             exit()
     
@@ -45,4 +45,24 @@ class chatbook:
                 print("Please input the correct credentials!!!")
         print("\n")
         self.menu()
+    def my_post(self):
+        if self.loggedin == True:
+            txt = input("Enter your message ot text here: ")
+            print(f"Your message or text has been posted: {txt}")
+        else:
+            print("You need to signin first to post something")
+        print("\n")
+        self.menu()
+    
+    def sent_msg(self):
+        if self.loggedin == True:
+            msg = input("Enter your message here: ")
+            frnd = input("Whom to send this message: ")
+            print(f"Your message has been sent to {frnd}")
+        else:
+            print("You need to signed in first to post something...")
+        print("\n")
+        self.menu()
+        
+        
 book = chatbook()
