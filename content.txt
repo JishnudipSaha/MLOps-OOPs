@@ -11,3 +11,10 @@
       > code reuseability
       > debugging
       > easy to code
+
+
+End to End project - chatbook (class)
+      > functions vs method
+      > encaptulation
+      > getter and setter
+      > static method
