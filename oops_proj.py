@@ -11,7 +11,9 @@ class chatbook:
                            2. Press 2 to signin
                            3. Press 3 to write a post
                            4. Press 4 to message a friend 
-                           5. Press any other key to exit:\n""")
+                           5. Press any other key to exit
+                           
+                           ->""")
         if user_input == "1":
             self.signup()
         elif user_input == "2":
