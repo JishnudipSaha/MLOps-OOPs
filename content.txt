@@ -18,3 +18,7 @@ End to End project - chatbook (class)
       > encaptulation
       > getter and setter
       > static method
+
+Inheritance completed:
+      > Parent class and child class from inheritance completed
+      > Super keyword completed
