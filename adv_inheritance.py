@@ -81,38 +81,75 @@
 
 # Multiple inheritance (Diamond problems)
 
+# # base class
+# class A:
+#     def __init__(self, name):
+#         self.name = name
+#     def greet(self):
+#         print(f"Hello from A, {self.name}.")
+
+# # intermediate class 1
+# class B(A):
+#     def greet(self):
+#         print(f"Hello from B, {self.name}.")
+#         super().greet()
+
+# # intermediate class 2
+# class C(A):
+#     def greet(self):
+#         print(f"Hello from C, {self.name}.")
+#         super().greet()
+        
+# # derived class
+# class D(B, C):
+#     def greet(self):
+#         print(f"Hello from D, {self.name}.")
+#         super().greet()
+
+# # creating instance of D
+# d = D("Jishnu")
+# d.greet()
+# '''
+# output:
+# Hello from D, Jishnu
+# Hello from B, Jishnu
+# Hello from C, Jishnu
+# Hello from A, Jishnu
+# '''
+
+#----------------------------------------------------------------------
+
+# Hybrid Inheritance
+
 # base class
-class A:
+class Animal():
     def __init__(self, name):
         self.name = name
-    def greet(self):
-        print(f"Hello from A, {self.name}.")
-
-# intermediate class 1
-class B(A):
-    def greet(self):
-        print(f"Hello from B, {self.name}.")
-        super().greet()
-
-# intermediate class 2
-class C(A):
-    def greet(self):
-        print(f"Hello from C, {self.name}.")
-        super().greet()
         
-# derived class
-class D(B, C):
-    def greet(self):
-        print(f"Hello from D, {self.name}.")
-        super().greet()
+    def sound(self):
+        print(f"{self.name} makes a sound.")
 
-# creating instance of D
-d = D("Jishnu")
-d.greet()
-'''
-output:
-Hello from D, Jishnu
-Hello from B, Jishnu
-Hello from C, Jishnu
-Hello from A, Jishnu
-'''
+# intermediate class 1 (Hiarchical)
+class Mammal(Animal):
+    def feed(self):
+        print(f"{self.name} is feeding milk.")
+
+# intermediate class 2 (Multiple)
+class Bird(Animal):
+    def fly(self):
+        print(f"{self.name} is flying.")
+
+# Derived class (Multiple Inheritance)
+class Bat(Mammal, Bird):
+    def __init__(self, name):
+        Mammal.__init__(self, name)
+    
+    def nocturnal(self):
+        print(f"{self.name} is a nocturnal.")
+
+# creating instance of a bat
+bat = Bat("Binod")
+bat.sound() # output: Binod makes a sound
+bat.feed() # output: Binod is feeding milk.
+bat.fly() # output: Binod is flying.
+bat.nocturnal() # output: Binod is nocturnal.
