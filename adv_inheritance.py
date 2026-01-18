@@ -49,30 +49,70 @@
 
 # Hiarchical inheritance
 
-# base class 
-class Parent():
+# # base class 
+# class Parent():
+#     def __init__(self, name):
+#         self.name = name
+#     def greet(self):
+#         print(f"{self.name} is greeting.")
+
+# # derived class 1
+# class ChildOne(Parent):
+#     def play(self):
+#         print(f"{self.name} is playing.")
+        
+# # derived class 2
+# class ChildTwo(Parent):
+#     def study(self):
+#         print(f"{self.name} is studying.")
+
+# # creating objects of clid classes
+
+# child1 = ChildOne("Jisnudip")
+# child2 = ChildTwo("Aritra")
+
+# child1.greet() # output: Jishnudip is greeting.
+# child1.play() # output: Jishnudip is playing.
+
+# child2.greet() # output: Aritra is greeting.
+# child2.study() # output: Aritra is studying.
+
+#--------------------------------------------------------
+
+# Multiple inheritance (Diamond problems)
+
+# base class
+class A:
     def __init__(self, name):
         self.name = name
     def greet(self):
-        print(f"{self.name} is greeting.")
+        print(f"Hello from A, {self.name}.")
 
-# derived class 1
-class ChildOne(Parent):
-    def play(self):
-        print(f"{self.name} is playing.")
+# intermediate class 1
+class B(A):
+    def greet(self):
+        print(f"Hello from B, {self.name}.")
+        super().greet()
+
+# intermediate class 2
+class C(A):
+    def greet(self):
+        print(f"Hello from C, {self.name}.")
+        super().greet()
         
-# derived class 2
-class ChildTwo(Parent):
-    def study(self):
-        print(f"{self.name} is studying.")
+# derived class
+class D(B, C):
+    def greet(self):
+        print(f"Hello from D, {self.name}.")
+        super().greet()
 
-# creating objects of clid classes
-
-child1 = ChildOne("Jisnudip")
-child2 = ChildTwo("Aritra")
-
-child1.greet() # output: Jishnudip is greeting.
-child1.play() # output: Jishnudip is playing.
-
-child2.greet() # output: Aritra is greeting.
-child2.study() # output: Aritra is studying.
+# creating instance of D
+d = D("Jishnu")
+d.greet()
+'''
+output:
+Hello from D, Jishnu
+Hello from B, Jishnu
+Hello from C, Jishnu
+Hello from A, Jishnu
+'''
